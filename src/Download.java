@@ -12,12 +12,16 @@ public class Download extends Thread {
     public void run() {
         Random random = new Random();
         int esperar = 1000 * random.nextInt(10);
-        System.out.println("Iniciando o download do arquivo: " + nomeArquivo);
+        System.out.println("Iniciando o download do arquivo: " + getNomeArquivo());
         try {
             Thread.sleep(esperar);
         } catch (InterruptedException e) {
-            System.out.println("Download do arquivo: " + nomeArquivo + " interrompido.");
+            System.out.println("Download do arquivo: " + getNomeArquivo() + " interrompido.");
         }
-        System.out.println("Download concluido do arquivo: " + nomeArquivo + " em " + esperar + " ms");
+        System.out.println("Download concluido do arquivo: " + getNomeArquivo() + " em " + esperar + " ms");
+    }
+
+    public String getNomeArquivo() {
+        return nomeArquivo;
     }
 }
